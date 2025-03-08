@@ -356,6 +356,7 @@
 		</style>
 		
 		<style>
+	
 			.container {
 			position: relative;
 			
@@ -408,7 +409,7 @@
 			font-family: Arial, Helvetica, sans-serif;
 			}
 			
-			.flip-card {
+		/*	.flip-card {
 			background-color: transparent;
 			height: 390px;
 			width:100%;
@@ -418,14 +419,36 @@
 			
 			.flip-card-inner {
 			position: relative;
-			
 			text-align: center;
 			transition: transform 0.6s;
 			transform-style: preserve-3d;
 			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 			
 			}
-			
+		*/
+
+			.flip-card {
+				background-color: transparent;
+				height: auto; /* เปลี่ยนจากค่าคงที่ */
+				width: 100%; /* ใช้ % เพื่อให้ responsive */
+				max-width: 600px; /* กำหนดขนาดสูงสุด */
+				margin: 0 auto; /* จัดกึ่งกลาง */
+				perspective: 1000px;
+			}
+
+			.flip-card-inner {
+				position: relative;
+				text-align: center;
+				transition: transform 0.6s;
+				transform-style: preserve-3d;
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			}
+
+			.flip-card img {
+				width: 100%;
+				height: auto;
+			}
+		
 			.flip-card:hover .flip-card-inner {
 			transform: rotateY(180deg);
 			}
@@ -458,7 +481,8 @@
 			
 			}
 			
-			
+
+	
 		</style>
 		
 		
@@ -552,35 +576,34 @@
 				
 				<div class="w3-container w3-content w3-center " style="max-width:1000px"  id="aboutus">
 					
-					</br>	</br>				
+					</br></br>			
 					<div class="flip-card">
 						<div class="flip-card-inner">
 							<div class="flip-card-front">
-								<img src="WebOrganeh/oem/Organeh1.jpg" class="w3-round w3-margin-bottom box" alt="Random Name" style="min-width:300px;width:60%;">
+								<img src="WebOrganeh/oem/Organeh1.jpg" class="w3-round w3-margin-bottom box" alt=" " style="width: 90%; max-width: 700px; height: auto; max-height: 380px;">
+
 							</div>
 							<div class="flip-card-back">
-								<img src="WebOrganeh/oem/Organeh2.jpg" class="w3-round w3-margin-bottom box" alt="Random Name" style="min-width:300px;width:60%;">
+								<img src="WebOrganeh/oem/Organeh2.jpg" class="w3-round w3-margin-bottom box" alt=" " style="width: 90%; max-width: 700px; height: auto; max-height: 380px; ">
 								
 							</div>
 						</div>
 					</div>
-					</br></br>
+
 					
-					
-			
-					
-					
-					<div   class="lang-th active " >
+					<div class=" w3-container w3-hide-medium w3-hide-large  small"></br> </br> </div>
+					<div class=" w3-container w3-hide-small w3-hide-large medium"></br></br></br></br></br> </div>
+					<div class=" w3-container w3-hide-medium w3-hide-small large"></br></br></br></br></br></br>	 </div>
+					<div class="about-us lang-th active"  			style="margin-top: 300px;">
 						<h2 class="w3-wide box">ILAMOON CO.,LTD.</h2>
-						<p class="w3-opacity box"><i>เกี่ยวกับเรา</i></p>
-						<p class="w3-justify box">บริษัท ไอละมุน จำกัด (Ilamoon Co., Ltd) ก่อตั้งขึ้นเมื่อ วันที่ 9 สิงหาคม 2559 ซึ่งเป็นผู้ผลิตและออกแบบ และพัฒนาสูตรอาหารแปรรูป จากข้าวและผลผลิตจากเกษตรกรท้องถิ่น ในรูปแบบการอบแห้ง และบดผง บริษัทมีความมุ่งมั่นในการวิจัย พัฒนาและออกแบบผลิตภัณฑ์ที่มีคุณภาพและปลอดภัย พร้อมด้วยกระบวนการผลิตที่ได้การรับรองตามมาตรฐานสากล ส่งมอบสินค้าได้ตรงเวลา และสร้างความพึงพอใจให้แก่ลูกค้า</p>
-				
+					  <p class="w3-justify box">บริษัท ไอละมุน จำกัด (Ilamoon Co., Ltd) ก่อตั้งขึ้นเมื่อ วันที่ 9 สิงหาคม 2559 ซึ่งเป็นผู้ผลิตและออกแบบ และพัฒนาสูตรอาหารแปรรูป จากข้าวและผลผลิตจากเกษตรกรท้องถิ่น ในรูปแบบการอบแห้ง และบดผง บริษัทมีความมุ่งมั่นในการวิจัย พัฒนาและออกแบบผลิตภัณฑ์ที่มีคุณภาพและปลอดภัย พร้อมด้วยกระบวนการผลิตที่ได้การรับรองตามมาตรฐานสากล ส่งมอบสินค้าได้ตรงเวลา และสร้างความพึงพอใจให้แก่ลูกค้า</p>
+									
 					</div>
+
 					
 					
-					<div   class=" lang-en "  >
+					<div   class="about-us  lang-en "  				 style="margin-top: 350px;">
 						<h2 class="w3-wide box">ILAMOON CO.,LTD.</h2>
-						<p class="w3-opacity box"><i>about us</i></p>
 						<p class="w3-justify box">Established in 2016, Ilamoon Co., Ltd. is a forward-thinking
 							company based in Thailand that specializes in producing and
 							distributing high-quality, natural food products. We focus on
@@ -590,24 +613,8 @@
 							</br>
 							Our flagship brand, Organeh, is dedicated to delivering products made with the finest ingredients, ensuring that parents and individuals can trust the quality and safety of the food they choose.
 						</p>
-						
-						
 			
 					</div>
-					
-					
-					
-					
-					
-					
-					
-			
-					
-					
-					
-					
-					
-					
 					
 				</div>
 				
@@ -706,7 +713,7 @@
 						
 						
 					<div class="w3-row ">
-						<img src="WebOrganeh/oem/Organeh5.jpg" class="zoom w3-round w3-margin-bottom box" alt="Random Name" style="min-width:300px;width:60%;">
+						<img src="WebOrganeh/oem/Organeh5.jpg" class="zoom w3-round w3-margin-bottom box" alt="Random Name"  style="min-width:300px;width:70%;">
 						
 					</div>
 				</div>
@@ -718,10 +725,10 @@
 				<div class="w3-container w3-content w3-center" style="max-width:1000px" id="band">
 					<div class=" w3-container  w3-padding box ">
 						<center>  
-							<div  style="max-width:615px;width:100%;"  class=" w3-container  box">
+							<div  style="max-width:600px;width:100%;"  class=" w3-container  box">
 								<img src="WebOrganeh/oem/1.jpg" class="w3-round " alt="Random Name" style="width:100%">
 							</div>
-							<div  style="max-width:615px;width:100%;"  class=" w3-container  box">
+							<div  style="max-width:600px;width:100%;"  class=" w3-container  box">
 								<img src="WebOrganeh/oem/2.jpg" class="w3-round " alt="Random Name" style="width:100%">
 							</div>
 						</center>  
