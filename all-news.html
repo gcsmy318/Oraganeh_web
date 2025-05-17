@@ -1,0 +1,964 @@
+
+<!DOCTYPE html>
+<html lang="th">
+	
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<style>
+			.lang-th, .lang-en { display: none; } /* ซ่อนทุกภาษา */
+			.active { display: block; } /* แสดงเฉพาะที่เลือก */
+		</style>
+		
+		<style>
+			html {
+			scroll-behavior: smooth;
+			/*	background-color: #f1f1f1;*/
+			}
+			
+			
+			.sarabun-regular {
+			font-family: "Sarabun", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			}
+			
+			body {
+			margin: 0;
+			font-family: "Sarabun", sans-serif;
+	
+			/*   padding-top: 10px;
+			padding-right: 20px;
+			padding-bottom: 10px;
+			padding-left: 20px;*/
+			}
+			
+			.top-container {
+			background-color: #f1f1f1;
+			padding: 30px;
+			text-align: center;
+			}
+			
+			.header {
+			text-align: center;
+			z-index: 10;
+			padding: 5px 5px;
+			color: #f1f1f1;
+			background-color: white;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19);
+			text-align: center;
+			}
+			
+			.content {
+			padding: 16px;
+			}
+			
+			.sticky {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			}
+			
+			.sticky + .content {
+			padding-top: 102px;
+			}
+			
+		</style>
+		
+		<style>
+			
+			.slideshow-container {
+			position: relative;
+			width: 100%;
+			max-width: 1000px;
+			overflow: hidden;
+			height: 380px;
+			margin: 20px auto;
+			}
+			
+			.slide {
+			position: absolute;
+			width: 100%;
+			transition: transform 0.5s ease-in-out;
+			}
+			
+			.slide img {
+			width: 100%;
+			object-fit: cover;
+			}
+			
+			.navigation {
+			margin-top: 20px;
+			}
+			
+			.navigation button {
+			padding: 5px 9px;
+			margin: 0 3px;
+			border: none;
+			background: #333;
+			color: white;
+			font-size: 16px;
+			cursor: pointer;
+			}
+			
+			.navigation button:hover {
+			background: #555;
+			}
+			
+			/* เพิ่มสไตล์สำหรับปุ่มที่ถูกไฮไลต์ */
+			.navigation button.activeB {
+			background: #007bff;
+			color: white;
+			}
+		</style>
+		
+		<style>
+			
+			nav {
+			text-align: center;
+            overflow: hidden;
+			}
+			
+			nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+			}
+			
+			nav ul li {
+            float: left;
+            position: relative;
+			}
+			
+			nav ul li a {
+            display: block;
+            padding: 14px 20px;
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s ease;
+			}
+			
+			nav ul li a:hover {
+            color: #90ee90; /* เปลี่ยนเป็นสีเขียวอ่อน */
+			}
+			
+			nav ul li ul {
+            display: none;
+            position: absolute;
+            min-width: 200px;
+            z-index: 1;
+			}
+			
+			nav ul li ul li {
+            float: none;
+			}
+			
+			nav ul li ul li a {
+            padding: 10px 20px;
+			}
+			
+			nav ul li:hover ul {
+            display: block;
+			}
+			
+		</style>
+		
+		<style>
+			
+			header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+			}
+			
+			.left-section, .right-section {
+            display: flex;
+            align-items: center;
+			}
+			
+			.left-section a, .right-section a {
+			text-decoration: none;
+			margin: 0 10px;
+			font-size: 14px;
+			display: flex;
+			align-items: center;
+			}
+			
+			.left-section a:hover, .right-section a:hover {
+			color: #555;
+			}
+			
+			.right-section .icon {
+			margin-right: 10px;
+			}
+			
+			.right-section .icon img {
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			}
+			
+			.cart, .language-selector {
+			margin-left: 15px;
+			display: flex;
+			align-items: center;
+			font-size: 14px;
+			}
+			
+			.language-selector img {
+			width: 20px;
+			height: 14px;
+			margin-right: 5px;
+			}
+			
+		</style>
+		
+		<style>
+			a[id^='idhover_'] {
+			color: black;
+			}
+			
+			a[id^='idhover_']:hover {
+			color: #719F62;
+			}
+			
+			.pointer {cursor: pointer;}
+			
+		</style>
+		
+		<style>
+			
+			* {
+			box-sizing: border-box;
+			}
+			
+			img {
+			vertical-align: middle;
+			}
+			
+			/* Position the image container (needed to position the left and right arrows) */
+			.container {
+			position: relative;
+			}
+			
+			/* Hide the images by default */
+			.mySlides {
+			display: none;
+			}
+			
+			/* Add a pointer when hovering over the thumbnail images */
+			.cursor {
+			cursor: pointer;
+			}
+			
+			/* Next & previous buttons */
+			.prev,
+			.next {
+			cursor: pointer;
+			position: absolute;
+			top: 40%;
+			width: auto;
+			padding: 16px;
+			margin-top: -50px;
+			color: white;
+			font-weight: bold;
+			font-size: 20px;
+			border-radius: 0 3px 3px 0;
+			user-select: none;
+			-webkit-user-select: none;
+			}
+			
+			/* Position the "next button" to the right */
+			.next {
+			right: 0;
+			border-radius: 3px 0 0 3px;
+			}
+			
+			/* On hover, add a black background color with a little bit see-through */
+			.prev:hover,
+			.next:hover {
+			background-color: rgba(0, 0, 0, 0.8);
+			}
+			
+			/* Number text (1/3 etc) */
+			.numbertext {
+			color: #f2f2f2;
+			font-size: 12px;
+			padding: 8px 12px;
+			position: absolute;
+			top: 0;
+			}
+			
+			/* Container for image text */
+			.caption-container {
+			text-align: center;
+			background-color: #222;
+			padding: 2px 16px;
+			color: white;
+			}
+			
+			.row:after {
+			content: "";
+			display: table;
+			clear: both;
+			}
+			
+			/* Six columns side by side */
+			.column {
+			float: left;
+			width: 16.66%;
+			}
+			
+			/* Add a transparency effect for thumnbail images */
+			.demo {
+			opacity: 0.6;
+			}
+			
+			.active,
+			.demo:hover {
+			opacity: 1;
+			}
+			
+			
+			.box {
+			opacity: 0;
+			transform: translateY(50px);
+			transition: all 0.5s ease-out;
+			}
+			
+			.box.show {
+			opacity: 1;
+			transform: translateY(0);
+			}
+			
+			
+			/* ทิศทางของการเลื่อน */
+			.left { transform: translateX(-100px); }
+			.right { transform: translateX(100px); }
+			.top { transform: translateY(-100px); }
+			.bottom { transform: translateY(100px); }
+			
+			/* เมื่อ div เข้าสู่หน้าจอ */
+			.show {
+			opacity: 1;
+			transform: translate(0, 0);
+			}
+			
+			
+		</style>
+		
+		<style>
+	
+			.container {
+			position: relative;
+			
+			}
+			
+			.image {
+			opacity: 1;
+			display: block;
+			width: 100%;
+			height: auto;
+			transition: .5s ease;
+			backface-visibility: hidden;
+			}
+			
+			.middle {
+			transition: .5s ease;
+			opacity: 0;
+			position: absolute;
+			top: 35%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			text-align: center;
+			}
+			
+			.container:hover .image {
+			opacity: 0.3;
+			}
+			
+			.container:hover .middle {
+			opacity: 1;
+			}
+			
+			.text {
+			width: 220px;
+			min-height: 190px;
+			height: 90%;
+			background-color: #719F62;
+			color: white;
+			font-size: 14px;
+			padding: 10px 10px;
+			
+			}
+			
+		</style>
+		
+		
+		<style>
+			body {
+			font-family: Arial, Helvetica, sans-serif;
+			}
+			
+		/*	.flip-card {
+			background-color: transparent;
+			height: 390px;
+			width:100%;
+			perspective: 1000px;
+			
+			}
+			
+			.flip-card-inner {
+			position: relative;
+			text-align: center;
+			transition: transform 0.6s;
+			transform-style: preserve-3d;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			
+			}
+		*/
+
+			.flip-card {
+				background-color: transparent;
+				height: auto; /* เปลี่ยนจากค่าคงที่ */
+				width: 100%; /* ใช้ % เพื่อให้ responsive */
+				max-width: 600px; /* กำหนดขนาดสูงสุด */
+				margin: 0 auto; /* จัดกึ่งกลาง */
+				perspective: 1000px;
+			}
+
+			.flip-card-inner {
+				position: relative;
+				text-align: center;
+				transition: transform 0.6s;
+				transform-style: preserve-3d;
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			}
+
+			.flip-card img {
+				width: 100%;
+				height: auto;
+			}
+		
+			.flip-card:hover .flip-card-inner {
+			transform: rotateY(180deg);
+			}
+			
+			.flip-card-front, .flip-card-back {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			}
+			
+			
+			
+			.flip-card-back {
+			transform: rotateY(180deg);
+			}
+			
+			
+			.zoom {
+			transition: transform .2s;
+			margin: 0 auto;
+			
+			}
+			
+			.zoom:hover {
+			-ms-transform: scale(1.2); 
+			-webkit-transform: scale(1.2); 
+			transform: scale(1.2); 
+			
+			}
+			
+
+	
+	
+    .news-list { display: flex; gap: 20px; flex-wrap: wrap; }
+    .news-item { width: 30%; border: 1px solid #ccc; padding: 10px; cursor: pointer; border-radius: 5px; }
+    .news-item img { width: 100%; height: auto; object-fit: cover; }
+    .news-item h3 { margin: 10px 0 5px; font-size: 18px; }
+    .news-item p { font-size: 14px; color: #555; }
+
+    /* Popup styles */
+    .popup-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center;
+    }
+    .popup {
+      background: #fff; padding: 20px; border-radius: 8px; max-width: 600px; width: 90%;
+    }
+    .popup h2 { margin-top: 0; }
+    .popup img { width: 100%; height: auto; }
+    .popup-close { margin-top: 10px; text-align: right; }
+    .popup-close button { padding: 5px 10px; }
+
+    .more-news-link {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 8px 16px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+	
+		</style>
+		
+		
+	</head>
+	
+	<script>
+		function onClick(div) {
+			document.getElementById(div).scrollIntoView();
+		}
+	</script>
+	
+	<body >
+		<div class="container">
+			
+			
+		</div>
+		<div id="main"></div>
+		<header>
+			<!-- Left Section -->
+			<div class="left-section">
+				<!--   <a href="#"><span>➤ เข้าสู่ระบบ</span></a>
+					<a href="#"><span>👤 สมัครสมาชิก</span></a> -->
+				</div>
+				<!-- Right Section -->
+				
+				<div class="right-section">
+					<a  class="cart pointer lang-th active" style="color: #719F62;;text-decoration: none;" href="index.html#product">🛒 สั่งซื้อสินค้า</a>
+					<a  class="cart pointer lang-en " style="color: #719F62;;text-decoration: none;" href="index.html#product">🛒 Order </a>
+					
+					<a href="https://www.facebook.com/Organehbaby/?ref=embed_page" style="font-size: 20px;" class="fa fa-facebook"></a>
+					<a href="https://www.tiktok.com/@organeh_baby" style="font-size: 20px; " >
+						<svg  width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+							<path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+						</svg></a>
+						<div class="language-selector pointer" onclick="changeLanguage('th')">
+							<img  onclick="changeLanguage('th')" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/2560px-Flag_of_Thailand.svg.png" alt="TH">
+							<span>TH</span>
+						</div>
+						<div class="language-selector pointer"  onclick="changeLanguage('en')">
+							<img  onclick="changeLanguage('en')" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png" alt="TH">
+							<span>ENG</span>
+						</div>
+				</div>
+				
+			</header>
+			</br>
+			
+			
+			<center><a style=" "> <img class="zoom" src="WebOrganeh/jpg/logo.png" width="auto" height="320px" alt=""></a>  </center>
+			
+			
+			<center>	
+				<div style="height: 80px;font-size: 25px;  text-shadow: 1px 1px 2px grey;">  <p id="text"></p>&nbsp; </div>
+			</center>
+			
+			
+			
+			
+			<div class="header w3-center " style="  padding-top: 20px; " id="myHeader">
+				<nav>
+					<div class="w3-bar ">
+						<div class="w3-row">
+							<div   class="  lang-th active"> <img class="w3-bar-item w3-hide-large w3-hide-medium " src="WebOrganeh/jpg/logo.png" width="auto" height="70px" alt=""> 
+								<div class="zoom w3-bar-item" style="padding: 3px 10px;"  ><a id="idhover_1" class="pointer" style="color:;font-size:18px;;text-decoration: none;" href="index.html#main"> หน้าแรก </a>	 </div>
+								<div class="zoom w3-bar-item" style="padding: 3px 10px;" ><a id="idhover_2" class="pointer" style="color:;font-size:18px;;text-decoration: none;" href="index.html#product"> สินค้า </a>	 </div>
+								<div class="zoom w3-bar-item" style="padding: 3px 10px;" ><a id="idhover_3" class="pointer" style="color:;font-size:18px;" onclick="onClick('aboutus');"> เกี่ยวกับเรา </a>	 </div>
+								<div class="zoom w3-bar-item" style="padding: 3px 10px;" ><a id="idhover_4" class="pointer" style="color:;font-size:18px;;text-decoration: none;" href="index.html#review"> รีวีว</a></div>
+								<div class="zoom w3-bar-item" style="padding: 3px 10px;" ><a id="idhover_5" class="pointer" style="color:;font-size:18px;" onclick="onClick('OEM');">  OEM/ODM </a> </div>
+								<div class="zoom w3-bar-item" style="padding: 3px 10px;" ><a id="idhover_6" class="pointer" style="color:;font-size:18px;;text-decoration: none;" href="index.html#product">  สั่งซื้อ </a> </div>
+							</div>
+							
+							<div  class="  lang-en " > <img class="w3-bar-item w3-hide-large w3-hide-medium " src="WebOrganeh/jpg/logo.png" width="auto" height="70px" alt=""> 
+								<div class="zoom w3-bar-item" style="padding: 3px 10px;" ><a id="idhover_1" class="pointer" style="color:;font-size:17px;;text-decoration: none;" href="index.html#main">Home </a>	 </div>
+								<div class="zoom w3-bar-item" style="padding: 3px 10px;" ><a id="idhover_2" class="pointer" style="color:;font-size:17px;;text-decoration: none;" href="index.html#product"> Products </a>	 </div>
+								<div class="zoom w3-bar-item" style="padding: 3px 10px;" ><a id="idhover_3" class="pointer" style="color:;font-size:17px;" onclick="onClick('aboutus');"> About us </a>	 </div>
+								<div class="zoom w3-bar-item" style="padding: 3px 10px;" ><a id="idhover_4" class="pointer" style="color:;font-size:17px;;text-decoration: none;" href="index.html#review"> Review</a></div>
+								<div class="zoom w3-bar-item" style="padding: 3px 10px;" ><a id="idhover_5" class="pointer" style="color:;font-size:17px;" onclick="onClick('OEM');">  OEM/ODM </a> </div>
+								<div class="zoom w3-bar-item" style="padding: 3px 10px;" ><a id="idhover_6" class="pointer" style="color:;font-size:17px;;text-decoration: none;" href="index.html#product">  Order </a> </div>
+							</div>
+							
+							
+						</div>
+					</div>
+				</nav>
+			</div>
+			
+			
+		
+				
+			
+				
+				<div class="w3-container w3-content w3-center " style="max-width:1000px"  id="aboutus">
+					
+					</br></br>			
+				
+						<div   class="lang-th active " >
+						<h2 class="w3-wide box">ข่าวสาร</h2>
+					</div>
+					
+					<div   class=" lang-en "  >				
+						<h2 class="w3-wide box">News</h2>
+					</div>
+
+
+			<div class="news-list" id="newsList"></div>
+
+
+			
+				  <!-- Popup -->
+				  <div class="popup-overlay box"  id="popupOverlay" onclick="closePopup()">
+					<div class="popup " id="popupContent" >
+					  <h2 id="popupTitle"></h2>
+					  <img id="popupImage" />
+					  <a id="popupContentText" style="  word-wrap: break-word;"></a>
+		
+					</div>
+				  </div>
+				  
+  <script>
+    async function fetchAllNews() {
+      try {
+        const res = await fetch("https://systemappbackend-production.up.railway.app/api/news");
+        const data = await res.json();
+
+        const newsList = document.getElementById("newsList");
+        data.reverse().forEach(news => {
+          const item = document.createElement("div");
+          item.className = "news-item";
+          item.innerHTML = `
+            <img src="${news.imageUrl}" alt="${news.title}" />
+            <h3>${news.title}</h3>
+              <a style="word-wrap: break-word;">${news.content.substring(0, 150)}...</a>
+          `;
+		 item.onclick = () => openPopup(news);
+          newsList.appendChild(item);
+        });
+
+      } catch (err) {
+        console.error("ไม่สามารถโหลดข่าวได้:", err);
+      }
+    }
+
+    function openPopup(news) {
+      document.getElementById("popupTitle").innerText = news.title;
+      document.getElementById("popupImage").src = news.imageUrl;
+      document.getElementById("popupContentText").innerText = news.content;
+      document.getElementById("popupOverlay").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popupOverlay").style.display = "none";
+    }
+
+    fetchAllNews();
+  </script>
+					
+
+				</div>
+				
+				
+				</br></br>
+			
+				</div> 
+				
+				
+				
+			
+				
+				
+				
+		
+				
+				
+				
+		
+		
+				
+			</div>
+			
+			</br></br>
+			
+			
+			<div id="footerdiv"></div>
+			<footer style="background-color: #333; color: white; padding: 20px 0;">
+				<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+					<!-- About Section -->
+					
+					
+					
+					<div style="flex: 1; min-width: 250px; margin: 10px;">
+						<h3>ILAMOON CO.,LTD.</h3>
+						
+						<div   class="lang-th active " >
+							<p style="line-height: 1.6;">
+								เรามุ่งมั่นในการนำเสนออาหารที่ดีต่อสุขภาพและมิตรกับสิ่งแวดล้อม พร้อมสนับสนุนการใช้วัตถุดิบที่มีคุณภาพและยั่งยืน
+							</p>
+						</div>
+						<div   class=" lang-en "  >
+							<p style="line-height: 1.6;">
+								We are committed to providing healthy and environmentally friendly food. Ready to support the use of quality and sustainable raw materials.
+							</p>
+						</div>
+						</br>			</br>			</br>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3954.035309165721!2d100.01020407500391!3d7.679352992337637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwNDAnNDUuNyJOIDEwMMKwMDAnNDYuMCJF!5e0!3m2!1sen!2sth!4v1741677491845!5m2!1sen!2sth" width="370" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+					
+					
+					
+					<!-- Navigation Links -->
+					<div style="flex: 1; min-width: 250px; margin: 10px;">
+						
+						
+						<div   class="lang-th active " >
+							<h3>ลิงก์สำคัญ</h3>
+							<li><a onclick="onClick('product');" style="color: #90ee90; text-decoration: none;;text-decoration: none;" href="index.html#product">สินค้า</a></li>
+							<li><a onclick="onClick('review');"  style="color: #90ee90; text-decoration: none; ;text-decoration: none;" href="index.html#review">รีวีว</a></li>
+							<li><a onclick="onClick('aboutus');" style="color: #90ee90; text-decoration: none;">เกี่ยวกับเรา</a></li>
+							<li><a onclick="onClick('OEM');"  style="color: #90ee90; text-decoration: none;">OEM/ODM</a></li>
+						</div>
+						
+						<div   class=" lang-en "  >			
+							<h3>Links</h3>
+							<li><a onclick="onClick('product');" style="color: #90ee90; text-decoration: none; ;text-decoration: none;" href="index.html#product">products</a></li>
+							<li><a onclick="onClick('review');"  style="color: #90ee90; text-decoration: none; ;text-decoration: none;" href="index.html#review">Review</a></li>
+							<li><a onclick="onClick('aboutus');" style="color: #90ee90; text-decoration: none;">About us</a></li>
+							<li><a onclick="onClick('OEM');"  style="color: #90ee90; text-decoration: none;">OEM/ODM</a></li>
+						</div>
+						
+						
+						
+					</div>
+					<!-- Contact Info -->
+					<div style="flex: 1; min-width: 250px; margin: 10px;">
+						
+						
+						
+						
+						
+						<div   class="lang-th active " >
+							<h3>ติดต่อเรา</h3>
+							<p style="line-height: 1.6;">
+								<strong>ที่อยู่:</strong> 304 หมู่ 7 ต.ปรางหมู่ อ.เมือง จ.พัทลุง 93000<br>
+								<strong>โทร:</strong> 089-7241328<br>
+								<strong>อีเมล:</strong> ilamoon.mamy@gmail.com
+							</p>
+						</div>
+						
+						<div   class=" lang-en "  >	
+							<h3>Contact</h3>
+							<p style="line-height: 1.6;">
+								<strong>Address:</strong> 304  Moo 7, Prang Mu Subdistrict, Mueang District, Phatthalung  93000<br>
+								<strong>Tel:</strong> 089-7241328<br>
+								<strong>E-mail:</strong> ilamoon.mamy@gmail.com
+							</p>
+						</div>
+						
+						
+						
+					</div>
+					<!-- Social Media -->
+					<div style="flex: 1; min-width: 250px; margin: 10px;">
+						
+						
+						<h3  class="lang-th active " >ติดตามเรา</h3>
+						<h3  class=" lang-en " >Follow us</h3>
+						
+						
+						<div>
+							<a href="https://www.facebook.com/Organehbaby/?ref=embed_page" target="_blank" style="color: #90ee90; text-decoration: none; margin-right: 10px;">Facebook</a>
+							<a href="https://www.tiktok.com/@organeh_baby" target="_blank" style="color: #90ee90; text-decoration: none; margin-right: 10px;">Tik-Tok</a>
+							<!--    <a href="https://instagram.com" target="_blank" style="color: #90ee90; text-decoration: none; margin-right: 10px;">Instagram</a>
+							<a href="https://twitter.com" target="_blank" style="color: #90ee90; text-decoration: none;">Twitter</a> -->
+							<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FOrganehbaby%3Fcheckpoint_src%3Dany&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="370" height="450" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+						</div>
+					</div>
+				</div>
+				<div style="text-align: center; margin-top: 20px; font-size: 14px;">
+					© 2024 ILAMOON CO.,LTD.
+				</div>
+			</footer>
+			
+			
+			<script>
+				window.onscroll = function() {myFunction()};
+				
+				var header = document.getElementById("myHeader");
+				var sticky = header.offsetTop;
+				
+				function myFunction() {
+					if (window.pageYOffset > sticky) {
+						header.classList.add("sticky");
+						} else {
+						header.classList.remove("sticky");
+					}
+				}
+			</script>
+			
+			
+			<script src="script.js"></script>
+			<script>
+				let currentSlide = 0;
+				const slides = document.querySelectorAll(".slide");
+				const totalSlides = slides.length;
+				
+				function showSlide(index) {
+					slides.forEach((slide, i) => {
+						slide.style.transform = `translateX(${(i - index) * 100}%)`;
+					});
+					
+					// อัปเดตสถานะการไฮไลต์ของปุ่ม
+					document.querySelectorAll(".navigation button").forEach((button, i) => {
+						if (i === index) {
+							button.classList.add("activeB");
+							} else {
+							button.classList.remove("activeB");
+						}
+					});
+				}
+				
+				function nextSlide() {
+					currentSlide = (currentSlide + 1) % totalSlides;
+					showSlide(currentSlide);
+				}
+				
+				function goToSlide(index) {
+					currentSlide = index - 1; // Adjust index to match array
+					showSlide(currentSlide);
+				}
+				
+				setInterval(nextSlide, 3000); // Auto slide every 3 seconds
+				showSlide(0); // Initial display
+				
+				
+				
+			</script>
+			
+			
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+					const boxes = document.querySelectorAll(".box");
+					
+					const observer = new IntersectionObserver(entries => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add("show"); // แสดงเมื่อเข้าจอ
+								} else {
+								entry.target.classList.remove("show"); // ซ่อนเมื่อออกจอ
+							}
+						});
+					}, { threshold: 0.2 });
+					
+					boxes.forEach(box => observer.observe(box));
+				});
+			</script>
+			
+			
+			<script>
+				
+				
+				
+				
+				const    messages = [
+				"พัฒนาการที่ดี เริ่มต้นจากอาหารที่ดี",
+				"ออร์กาเนะ เชฟส่วนตัวที่คุณแม่มั่นใจ"
+				];
+				const    messages2 = [
+				"Good development It starts with good food. ",
+				"Personal chef that moms trust.",
+				"Every Mom’s Choice. "
+				];
+				
+				
+				let index = 0;
+				let textElement = document.getElementById("text");
+				
+				function typeText(message, callback) {
+					let i = 0;
+					textElement.textContent = "";
+					let interval = setInterval(() => {
+						textElement.textContent += message[i];
+						i++;
+						if (i === message.length) {
+							clearInterval(interval);
+							setTimeout(callback, 5000); // หน่วงเวลาก่อนแสดงข้อความถัดไป
+						}
+					}, 100);
+				}
+				
+				function changeText() {
+					const savedLangS = localStorage.getItem("language") || "th";
+					
+					if(savedLangS=="en"){
+						
+						index = Math.floor(Math.random() * messages2.length);
+						typeText(messages2[index], () => {
+							setTimeout(changeText, 1000);
+						});
+						}else{
+						
+						index = Math.floor(Math.random() * messages.length);
+						typeText(messages[index], () => {
+							setTimeout(changeText, 1000);
+						});
+					}
+					
+					
+				}
+				
+				changeText() ;
+				
+				
+				
+				
+				function changeLanguage(lang) {
+					// ซ่อนทุก div ของทุกภาษา
+					document.querySelectorAll(".lang-th, .lang-en").forEach(el => el.style.display = "none");
+					// แสดง div ที่ตรงกับภาษาที่เลือก
+					document.querySelectorAll(`.lang-${lang}`).forEach(el => el.style.display = "block");
+					// บันทึกค่าภาษาล่าสุดลง LocalStorage
+					localStorage.setItem("language", lang);
+					
+					
+				}
+				
+				
+				// โหลดค่าภาษาที่ผู้ใช้เลือกไว้ล่าสุด (ถ้ามี)
+				window.onload = function() {
+					const savedLang = localStorage.getItem("language") || "th"; // ถ้าไม่มี ให้ใช้ "th"
+					changeLanguage(savedLang);
+					
+					
+				};
+				
+				
+			</script>
+			
+			
+	</body>
+	</html>			
+	
+	
+	
+	
+	
+	
+
+
+
