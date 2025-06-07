@@ -1426,6 +1426,54 @@
 			</br></br>
 			-->
 			
+			
+			
+			
+			
+			
+			<div id="privacy-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  z-index: 9999;
+  font-size: 14px;
+  display: none;
+  flex-direction: column;
+">
+  <div style="margin-bottom: 10px;">
+    เว็บไซต์นี้ใช้คุกกี้เพื่อปรับปรุงประสบการณ์ของคุณ โปรดอ่าน
+    <a href="privacy.html" target="_blank" style="color: #90ee90; text-decoration: underline;">นโยบายความเป็นส่วนตัว</a>
+  </div>
+  <button onclick="acceptPrivacy()" style="
+    background-color: #90ee90;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  ">ยอมรับ</button>
+</div>
+<script>
+  // แสดง banner หากยังไม่เคยกดยอมรับ
+  window.addEventListener('DOMContentLoaded', function () {
+    if (!localStorage.getItem('privacyAccepted')) {
+      document.getElementById('privacy-banner').style.display = 'flex';
+    }
+  });
+
+  // เมื่อกด “ยอมรับ”
+  function acceptPrivacy() {
+    localStorage.setItem('privacyAccepted', 'true');
+    document.getElementById('privacy-banner').style.display = 'none';
+  }
+</script>
+
+
 			<div id="footerdiv"></div>
 			<footer style="background-color: #333; color: white; padding: 20px 0;">
 				<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
